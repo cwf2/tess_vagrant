@@ -1,4 +1,5 @@
-= Tesserae with Vagrant
+Tesserae with Vagrant
+=====================
 
 Build a default Tesserae installation using Vagrant and VirtualBox. Useful for development or adding your own texts without having to deal with a messy install process.
 
@@ -10,13 +11,15 @@ Then point your browser to _master.tesserae.org_. To change the name/IP address,
 
 To interact with Tesserae on the command line, use `vagrant ssh`.
 
-== VM specs
+VM specs
+--------
 
 Note that the _Vagrantfile_ allocates 4 GB of RAM and 2 CPUs to the guest machine (lines 53-54). You might want to raise/lower those numbers depending on your host.
 
 If you add more CPUs, you can take advantage of them by changing $TESSNCORES in _setup/tessrc_ to some other number, or using the *--parallel* option with scripts at the command line.
 
-== Extras
+Extras
+------
 
 The following scripts add to/take away from the installation process. You can modify _setup/bootstrap.sh_ to include them (this is run during provisioning). Or ssh into the VM and run them yourself.
 
@@ -28,6 +31,7 @@ The following scripts add to/take away from the installation process. You can mo
    * translation featuresets
    * batch searches via web interface
    
-== To do
+To do
+-----
 
 My plan is to add branches to this repo that correspond to different branches of Tesserae, (like *develop* for example).
