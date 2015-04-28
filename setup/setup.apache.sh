@@ -14,4 +14,4 @@ sudo chgrp -R www-data $TESSTMP
 sudo chmod g+w $TESSTMP
 
 # build dropdown lists
-perl $TESSROOT/scripts/v3/textlist.pl la grc
+perl $TESSROOT/scripts/v3/textlist.pl la

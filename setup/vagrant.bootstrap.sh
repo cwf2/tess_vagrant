@@ -10,13 +10,17 @@ apt-get update
 
 apt-get install -y \
 	git                 \
-	apache2             \
+   nginx               \
+   fcgiwrap            \
+   libfcgi-perl        \
 	screen              \
 	vim                 \
 	htop                \
 	perl-doc            \
 	sqlite3             \
-	libapache2-mod-php5 \
+   beanstalkd          \
+   make                \
+   cpanminus           \
 	libfile-copy-recursive-perl \
 	libparallel-forkmanager-perl \
 	liblingua-stem-perl \
@@ -30,13 +34,15 @@ apt-get install -y \
    python-pip
 
 pip install gensim
+cpanm Beanstalk::Client
+
+cp /vagrant/setup/beanstalkd /etc/default/beanstalkd
+service beanstalkd restart
 
 # setup tesserae
 
-sudo -u vagrant git clone https://github.com/cwf2/tesserae $TESSROOT
+#sudo -u vagrant git clone -b valery https://github.com/cwf2/tesserae $TESSROOT
 
-sudo -u vagrant /vagrant/setup/setup.cut-texts.sh
+#sudo -u vagrant /vagrant/setup/setup.tess.core.sh
 
-sudo -u vagrant /vagrant/setup/setup.tess.core.sh
-
-sudo -u vagrant /vagrant/setup/setup.apache.sh
+#sudo -u vagrant /vagrant/setup/setup.apache.sh

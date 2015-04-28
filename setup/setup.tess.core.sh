@@ -19,16 +19,13 @@ perl $TESSROOT/scripts/v3/patch-stem-cache.pl
 
 # word index
 perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/grc/*
 
 # stem index
 perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES $TESSROOT/texts/grc/*
 
 # trigram index
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
-   --feat 3gr $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
-   --feat 3gr $TESSROOT/texts/grc/*
+perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel 2 --feat 3gr texts/la/*
 
-perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr la grc
+# corpus-wide statistics
+perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr la
+

@@ -1,13 +1,18 @@
 Tesserae with Vagrant
 =====================
 
-Build a default Tesserae installation using Vagrant and VirtualBox. Useful for development or adding your own texts without having to deal with a messy install process.
+Branch "valery"
+---------------
 
-By default, `vagrant up` will install Perseus Latin and Greek texts, indexed by word, stem, and character 3-gram. Also sets up the web interface using Apache; if you want to view the site on your host computer, add the following to your _hosts_ file:
+Build a custom installation of the "valery" branch of Tesserae using Vagrant and VirtualBox. Useful for development or adding your own texts without having to deal with a messy install process.
+
+By default, `vagrant up` will install Perseus Latin texts, indexed by word and stem. Because this project focusses on Claudian, I've added some "pseudo-texts" that comprise specific collections of his works that can be searched all together. 
+
+The default installation also sets up the web interface using Apache; if you want to view the site on your host computer, add the following to your _hosts_ file:
 ```
-master.tesserae.org  128.180.30.10
+valery.tesserae.org  128.180.31.10
 ```
-Then point your browser to _master.tesserae.org_. To change the name/IP address, see _Vagrantfile_ line 27, and _setup/tessrc_ line 3.
+Then point your browser to _valery.tesserae.org_. To change the name/IP address, see _Vagrantfile_ line 27, and _setup/tessrc_ line 3.
 
 To interact with Tesserae on the command line, use `vagrant ssh`.
 
@@ -35,3 +40,8 @@ To do
 -----
 
 My plan is to add branches to this repo that correspond to different branches of Tesserae, (like *develop* for example).
+
+See also
+--------
+
+Documentation of elements non-specific to branch "valery" can be found in the "3_1" branch.
