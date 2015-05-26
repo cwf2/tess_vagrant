@@ -35,8 +35,6 @@ pip install gensim
 
 sudo -u vagrant git clone https://github.com/cwf2/tesserae $TESSROOT
 
-sudo -u vagrant /vagrant/setup/setup.cut-texts.sh
-
 sudo -u vagrant /vagrant/setup/setup.tess.core.sh
 
 sudo -u vagrant /vagrant/setup/setup.apache.sh
