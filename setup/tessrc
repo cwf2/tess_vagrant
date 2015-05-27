@@ -1,4 +1,4 @@
 export TESSROOT="/vagrant/tesserae"
 export TESSTMP="/home/vagrant/tess-session"
-export TESSDOMAIN="master.tesserae.org"
+export TESSDOMAIN="3_1.tesserae.org"
 export TESSNCORES=2
