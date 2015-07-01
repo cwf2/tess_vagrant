@@ -57,7 +57,9 @@ perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr la
 
 perl $TESSROOT/scripts/apache2/vhost-gen.pl > /tmp/tesserae.conf
 mv /tmp/tesserae.conf /etc/apache2/sites-available/
+a2dissite 000-default
 a2ensite tesserae
+a2enmod cgi perl
 service apache2 restart
 
 chgrp -R www-data $TESSTMP
