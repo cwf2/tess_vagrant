@@ -53,7 +53,8 @@ perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
 # calculate corpus stats
 perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr \
     --feat trans la grc
-perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr en
+perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr \
+    --use-lingua en
 
 # setup multi-text search
 perl $TESSROOT/scripts/v3/index_multi.pl --lang la
