@@ -14,8 +14,8 @@ fi
 perl $TESSROOT/scripts/configure.pl --url_root $TESSDOMAIN --fs_tmp $TESSTMP
 perl $TESSROOT/scripts/install.pl
 
-perl $TESSROOT/scripts/v3/build-stem-cache.pl la grc
-perl $TESSROOT/scripts/v3/patch-stem-cache.pl
+perl $TESSROOT/scripts/build-stem-cache.pl la grc
+perl $TESSROOT/scripts/patch-stem-cache.pl
 
 # word index
 perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/la/*

@@ -5,30 +5,35 @@ set -x
 . /vagrant/setup/tessrc
 
 # get necessary packages
+yum install -y \
+    git \
+    vim \
+    screen \
+    httpd \
+    mod_perl \
+    php \
+    php-cli \
+    perl-YAML \
+    perl-CPAN \
+    perl-CGI \
+    perl-CGI-Session \
+    perl-JSON \
+    perl-XML-LibXML \
+    perl-DBD-SQLite \
+    perl-Term-UI \
+    perl-File-Copy-Recursive \
+    perl-Archive-Zip \
+    gcc \
+    python-devel \
+    scipy
 
-apt-get update
+curl -# -L http://cpanmin.us | perl - --sudo App::cpanminus
 
-apt-get install -y \
-    git                 \
-    apache2             \
-    screen              \
-    vim                 \
-    htop                \
-    perl-doc            \
-    sqlite3             \
-    libapache2-mod-php5 \
-    libfile-copy-recursive-perl \
-    libparallel-forkmanager-perl \
-    liblingua-stem-perl \
-    libdbd-sqlite3-perl \
-    libarchive-zip-perl \
-    libjson-perl        \
-    libxml-libxml-perl  \
-    python-numpy        \
-    python-scipy        \
-    python-pip
+/usr/local/bin/cpanm Parallel::ForkManager
+/usr/local/bin/cpanm Lingua::Stem
 
-pip install gensim
+easy_install gensim
+
 
 # setup tesserae
 

@@ -4,14 +4,13 @@ set -x
 
 # configure web server
 
-perl $TESSROOT/scripts/apache2/vhost-gen.pl > /tmp/tesserae
-sudo mv /tmp/tesserae /etc/apache2/sites-available/
-sudo a2dissite default
-sudo a2ensite tesserae
-sudo service apache2 reload
+perl $TESSROOT/scripts/apache2/vhost-gen.pl > /tmp/tesserae.conf
+sudo mv /tmp/tesserae.conf /etc/httpd/conf.d/tesserae.conf
+sudo mv /etc/httpd/conf.d/welcome.conf /home/vagrant/old.welcome.conf
+sudo service httpd restart
 
-sudo chgrp -R www-data $TESSTMP
+sudo chown -R apache:apache $TESSTMP
 sudo chmod g+w $TESSTMP
 
 # build dropdown lists
-perl $TESSROOT/scripts/v3/textlist.pl la grc
+perl $TESSROOT/scripts/textlist.pl la grc
