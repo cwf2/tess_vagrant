@@ -11,8 +11,8 @@ then
    mkdir $TESSTMP
 fi
 
-perl $TESSROOT/scripts/configure.pl --url_root $TESSDOMAIN --fs_tmp $TESSTMP
-perl $TESSROOT/scripts/install.pl
+perl $TESSROOT/scripts/install/configure.pl --url_root $TESSDOMAIN --fs_tmp $TESSTMP
+perl $TESSROOT/scripts/install/install.pl
 
 perl $TESSROOT/scripts/v3/build-stem-cache.pl la grc
 perl $TESSROOT/scripts/v3/patch-stem-cache.pl
