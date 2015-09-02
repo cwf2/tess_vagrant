@@ -1,9 +1,9 @@
 Tesserae with Vagrant
 =====================
 
-Build a default Tesserae installation using Vagrant and VirtualBox. Useful for development or adding your own texts without having to deal with a messy install process.
+Build a Tesserae installation using Vagrant and VirtualBox. Useful for development or adding your own texts without having to deal with a messy install process.
 
-By default, `vagrant up` will install Perseus Latin and Greek texts, indexed by word, stem, and character 3-gram. Also sets up the web interface using Apache; if you want to view the site on your host computer, add the following to your _hosts_ file:
+By default, `vagrant up` will install Perseus Latin texts, indexed by word and stem. Also sets up the web interface using Apache; if you want to view the site on your host computer, add the following to your _hosts_ file:
 ```
 master.tesserae.org  128.180.30.10
 ```
@@ -14,7 +14,7 @@ To interact with Tesserae on the command line, use `vagrant ssh`.
 VM specs
 --------
 
-Note that the _Vagrantfile_ allocates 4 GB of RAM and 2 CPUs to the guest machine (lines 53-54). You might want to raise/lower those numbers depending on your host.
+Note that the _Vagrantfile_ allocates 2 GB of RAM and 2 CPUs to the guest machine (lines 53-54). You might want to raise/lower those numbers depending on your host.
 
 If you add more CPUs, you can take advantage of them by changing $TESSNCORES in _setup/tessrc_ to some other number, or using the *--parallel* option with scripts at the command line.
 
@@ -23,8 +23,6 @@ Extras
 
 The following scripts add to/take away from the installation process. You can modify _setup/bootstrap.sh_ to include them (this is run during provisioning). Or ssh into the VM and run them yourself.
 
- * _setup.cut-texts.sh_ delete most of the corpus to shorten install time for development/testing. Leaves only a couple of texts each in Greek and Latin. Must preceed setup.tess.core.sh
- * _setup.tess.english.sh_ index English texts.
  * _setup.tess.ancillaries.sh_ adds the following for Greek and Latin:
    * LSI search
    * multi-text search

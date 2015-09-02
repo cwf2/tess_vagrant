@@ -25,16 +25,23 @@ apt-get install -y \
 	libjson-perl        \
 	libxml-libxml-perl  \
 	libgit-repository-perl \
-   python-numpy        \
-   python-scipy        \
-   python-pip
+#   python-numpy        \
+#   python-scipy        \
+#   python-pip
+#
+# pip install gensim
 
-pip install gensim
 
-# setup tesserae
+# download tesserae - if it doesn't exist already
 
-sudo -u vagrant git clone https://github.com/cwf2/tesserae $TESSROOT
+if ! [ -e $TESSROOT ]
+then
+  sudo -u vagrant git clone https://github.com/tesserae/tesserae $TESSROOT
+fi
 
-sudo -u vagrant /vagrant/setup/setup.tess.core.sh
-
-sudo -u vagrant /vagrant/setup/setup.apache.sh
+/vagrant/setup/setup.cut-texts.sh
+/vagrant/setup/setup.tess.core.sh
+/vagrant/setup/setup.texts-la.sh
+/vagrant/setup/setup.texts-grc.sh
+/vagrant/setup/setup.texts-en.sh
+/vagrant/setup/setup.apache.sh
