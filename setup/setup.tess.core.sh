@@ -14,21 +14,17 @@ fi
 perl $TESSROOT/scripts/install/configure.pl --url_root $TESSDOMAIN --fs_tmp $TESSTMP
 perl $TESSROOT/scripts/install/install.pl
 
-perl $TESSROOT/scripts/v3/build-stem-cache.pl la grc
-perl $TESSROOT/scripts/v3/patch-stem-cache.pl
+# build stem cache
+perl $TESSROOT/scripts/build-stem-cache.pl la grc
+perl $TESSROOT/scripts/patch-stem-cache.pl
 
-# word index
-perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/grc/*
+# build synyonymy caches
+perl $TESSROOT/scripts/synonymy/build-trans-cache.pl --feat syn \
+  --la $TESSROOT/data/synonymy/syn.csv \
+  --grc $TESSROOT/data/synonymy/syn.csv
+perl $TESSROOT/scripts/synonymy/build-trans-cache.pl --feat syn_lem \
+  --la $TESSROOT/data/synonymy/syn_lem.csv \
+  --grc $TESSROOT/data/synonymy/syn_lem.csv
+perl $TESSROOT/scripts/synonymy/build-trans-cache.pl --feat g_l \
+  --grc $TESSROOT/data/synonymy/g_l.csv
 
-# stem index
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES $TESSROOT/texts/grc/*
-
-# trigram index
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
-   --feat 3gr $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
-   --feat 3gr $TESSROOT/texts/grc/*
-
-perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr la grc

@@ -30,7 +30,7 @@ pip install gensim
 
 # setup tesserae
 
-#sudo -u vagrant git clone -b develop https://github.com/cwf2/tesserae $TESSROOT
+sudo -u vagrant git clone -b develop https://github.com/cwf2/tesserae $TESSROOT
 # comment out the line below to install the full corpus
 #sudo -u vagrant /vagrant/setup/setup.cut-texts.sh
 #sudo -u vagrant /vagrant/setup/setup.tess.core.sh
