@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   # Don't boot with headless mode
   #   vb.gui = true
   #
-    v.memory = 2048
+    v.memory = 8192
     v.cpus = 2
   end
   #

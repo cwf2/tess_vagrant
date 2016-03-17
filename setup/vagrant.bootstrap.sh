@@ -36,7 +36,7 @@ apt-get install -y \
 
 if ! [ -e $TESSROOT ]
 then
-  sudo -u vagrant git clone https://github.com/tesserae/tesserae $TESSROOT
+  sudo -u vagrant git clone -b hotfix_ali https://github.com/cwf2/tesserae $TESSROOT
 fi
 
 /vagrant/setup/setup.cut-texts.sh
