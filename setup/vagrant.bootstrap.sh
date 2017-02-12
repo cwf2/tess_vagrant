@@ -9,6 +9,8 @@ TESSNCORES=2
 
 # get necessary packages
 
+apt-get update
+
 apt-get install -y \
 	git                 \
 	apache2             \
