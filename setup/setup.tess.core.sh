@@ -13,17 +13,28 @@ perl $TESSROOT/scripts/build-stem-cache.pl la grc
 perl $TESSROOT/scripts/patch-stem-cache.pl
 
 # word index
-perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES $TESSROOT/texts/grc/*
+perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES \
+  $TESSROOT/texts/la/*
+perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES \
+  $TESSROOT/texts/grc/*
+perl $TESSROOT/scripts/v3/add_column.pl --parallel $TESSNCORES \
+  $TESSROOT/texts/en/*
 
 # stem index
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES $TESSROOT/texts/la/*
-perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES $TESSROOT/texts/grc/*
+perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
+  $TESSROOT/texts/la/*
+perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
+  $TESSROOT/texts/grc/*
+perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
+  --use-lingua-stem $TESSROOT/texts/en/*
 
 # trigram index
 perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
    --feat 3gr $TESSROOT/texts/la/*
 perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
    --feat 3gr $TESSROOT/texts/grc/*
+perl $TESSROOT/scripts/v3/add_col_stem.pl --parallel $TESSNCORES \
+   --feat 3gr $TESSROOT/texts/en/*
 
-perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr la grc
+# calculate corpus-wide statistics
+perl $TESSROOT/scripts/v3/corpus-stats.pl --feat stem --feat 3gr la grc en

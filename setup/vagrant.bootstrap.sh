@@ -37,7 +37,8 @@ easy_install gensim
 
 # setup tesserae
 
-sudo -u vagrant git clone -b 3_1 https://github.com/cwf2/tesserae $TESSROOT
+sudo -u vagrant git clone -b develop \
+  https://github.com/tesserae/tesserae $TESSROOT
 
 if ! [ -e $TESSTMP ]
 then
@@ -45,6 +46,6 @@ then
 fi
 
 # comment out the line below to install the full corpus
-sudo -u vagrant /vagrant/setup/setup.cut-texts.sh
-sudo -u vagrant /vagrant/setup/setup.tess.core.sh
-sudo -u vagrant /vagrant/setup/setup.apache.sh
+# sudo -u vagrant /vagrant/setup/setup.cut-texts.sh
+# sudo -u vagrant /vagrant/setup/setup.tess.core.sh
+# sudo -u vagrant /vagrant/setup/setup.apache.sh
