@@ -34,7 +34,6 @@ curl -# -L http://cpanmin.us | perl - --sudo App::cpanminus
 
 easy_install gensim
 
-
 # setup tesserae
 
 sudo -u vagrant git clone -b develop \
